@@ -35,7 +35,7 @@ Please read [CONTRIBUTING.md]() for details on our code of conduct, and the proc
 
 * **Gaurav Saini** - *Initial work* - [cosmivdev2016](https://github.com/cosmicdev2016/)
 
-See also the list of [contributors](https://github.com/your/<>/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/cosmicdev2016/sprintdashboard/contributors) who participated in this project.
 
 ## License
 
