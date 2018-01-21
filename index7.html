@@ -1,0 +1,192 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bootstrap-datepicker.min.css">
+    <!-- Bootstrap core JavaScript
+	================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+    <script src="bootstrap-datepicker.min.js"></script>
+    <script src="scripts.js"></script>
+</head>
+
+<body>
+    <div class="panel panel-success">
+        <div class="panel-heading">Sprint Updates.</div>
+        <div class="panel-body">
+            <div id="exTab3">
+                <ul class="nav nav-pills">
+                    <li class="active">
+                        <a href="#1b" data-toggle="tab">Create Data</a>
+                    </li>
+                    <li>
+                        <a href="#2b" data-toggle="tab">Sprint Dashboard</a>
+                    </li>
+                </ul>
+
+                <!-- Build tab and content -->
+                <div class="tab-content clearfix">
+
+                    <!-- 1st Tab -->
+                    <div class="tab-pane active" id="1b">
+                        <div id="dataSetup" class="container" style="margin-left: unset;">
+                            <div class="row">
+                                <div id="saveSuccessAlert" class="alert alert-warning fade show" role="alert">
+                                    <strong>Saved!</strong> User story(s) saved successfully.
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div id="uploadSuccessAlert" class="alert alert-warning fade show" role="alert">
+                                    <strong>Uploaded!</strong> User story data uploaded successfully.
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="control-group" id="fields">
+                                    <label class="control-label" for="field1">Enter User Story #s</label>
+                                    <div class="controls">
+                                        <form role="form" autocomplete="off">
+                                            <div class="entry input-group col-xs-3">
+                                                <input class="form-control" name="fields[]" type="text" placeholder="User Story #" />
+                                                <span class="input-group-btn">
+										  <button class="btn btn-success btn-add" type="button" style="height: 34px">
+											<span class="glyphicon glyphicon-plus"></span>
+                                                </button>
+                                                </span>
+                                            </div>
+                                        </form>
+
+                                        <small>Press <span class="glyphicon glyphicon-plus gs"></span> to add another form field.</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row spacer">
+                                <button id="saveSetup" type="button" class="btn btn-warning">Save</button>
+                            </div>
+                            <hr/>
+                            <div class="row spacer">
+                                <label class="control-label" for="field1">Import User Story data</label>
+                                <form id="uploadForm">
+                                    <div class="form-group">
+                                        <div class="input-group input-file col-xs-3" name="Fichier1">
+                                            <input id="fileName" type="text" class="form-control" placeholder='Choose a file...' />
+                                            <span class="input-group-btn">
+												<button class="btn btn-default btn-choose" type="button">Choose</button>
+											</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <button id="upload" type="button" class="btn btn-primary">Upload Sprint Data</button>
+                                        <button type="reset" class="btn btn-danger">Reset</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2nd Tab -->
+                    <div class="tab-pane" id="2b">
+                        <div id="dashboard" class="container" style="margin-left: unset;">
+                            <div class="row">
+                                <div id="saveDashboardSuccessAlert" class="alert alert-warning fade show" role="alert">
+                                    <strong>Saved!</strong> Dashboard saved successfully.
+                                </div>
+                            </div>
+                            <!-- <h1>Planning board</h1> -->
+                            <div class="row">
+                                <div id="board">
+                                    <div>
+                                        <h4>TODO</h4>
+                                        <h4>DEV In Progress</h4>
+                                        <h4>QA In Progress</h4>
+                                        <h4>DONE</h4>
+                                    </div>
+                                    <ul id="todo" class="">
+                                        <li id="item1" draggable="true">Task 1</li>
+                                        <li id="item2" draggable="true">Task 2</li>
+                                        <li id="item3" draggable="true">Task 3</li>
+                                    </ul>
+                                    <!--
+						  -->
+                                    <ul id="devinprogress" class="">
+                                    </ul>
+                                    <!--
+						  -->
+                                    <ul id="qainprogress" class="">
+                                    </ul>
+                                    <!--
+						  -->
+                                    <ul id="done" class="">
+                                    </ul>
+
+                                    <p>
+                                        <p>
+                                            <button id="clear" type="button" class="btn btn-warning" onclick="clearDB()" disabled>Clear</button>
+                                            <button id="save" type="button" class="btn btn-warning" onclick="saveDB()">Save Sprint Progress</button>
+                                            <hr/>
+                                            <button id="downloadContent" type="button" class="btn btn-warning" onclick="download()">Download</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- User story details --- Modal div -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel" style="position: absolute; font-size: 1.8rem;">New message</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form id="usData">
+                                            <input id="recordId" type="hidden" value="" />
+                                            <div class="form-group">
+                                                <label for="us-description" class="form-control-label">Description:</label>
+                                                <input type="text" class="form-control" id="us-description">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="name-dev" class="form-control-label">DEV:</label>
+                                                <input type="text" class="form-control" id="name-dev">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="name-qa" class="form-control-label">QA:</label>
+                                                <input type="text" class="form-control" id="name-qa">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="notes-text" class="form-control-label">Notes:</label>
+                                                <textarea class="form-control" id="notes-text" disabled></textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-xs-6">
+                                                        <label for="delivery-date" class="form-control-label">DEV Complete Date:</label>
+                                                        <input type="text" class="form-control" id="delivery-date">
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <label for="delivery-date" class="form-control-label"># Days remaining..</label>
+                                                        <input type="text" class="form-control" id="days-remaining" disabled>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button id="saveUSData" type="button" class="btn btn-primary">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

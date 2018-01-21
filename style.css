@@ -1,0 +1,110 @@
+/* Panel CSS */
+.panel-success>.panel-heading {
+	font-size: x-large;
+}
+
+/* Tab1 form CSS */
+.entry:not(:first-of-type)
+{
+	margin-top: 10px;
+}
+
+.glyphicon
+{
+	font-size: 12px;
+}
+
+.spacer {
+	margin-top: 20px; /* define margin as you see fit */
+}
+
+/* Tab2 form CSS */
+* {
+  font-family: 'Segoe UI';
+}
+#board li {
+  list-style: none;
+  padding: 5px;
+  background: #f5f5f5;
+  border-radius: 5px;
+  margin: 0 0 5px;
+}
+#board li:hover {
+	background-color: #c2d4d8;
+}
+#board ul {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  width: 23%;
+  margin: 0 0.5%;
+  display: inline-block;
+  vertical-align: top;
+}
+#board ul.over {
+  padding-bottom: 55px;
+  background: url('http://www.cufonfonts.com/makeImage.php?width=650&id=1026&size=35&d=y&text=Drop%20Here') center bottom no-repeat #ccc;
+}
+#board ul.over li {
+  background: #fff;
+}
+
+#board div h4 {
+	display: inline-block; 
+	width: 23%; 
+	#margin: 1%; 
+	text-align: center;}
+	
+#board hr {
+	color: #b0aac2;
+	background-color: #b0aac2;
+	height: 1px;	
+}
+
+#dataSetup hr {
+	color: #b0aac2;
+	background-color: #b0aac2;
+	height: 1px;	
+}
+
+/* Tab panel CSS */
+body {
+  padding : 10px ;
+  
+}
+
+#exTab1 .tab-content {
+  color : white;
+  background-color: #428bca;
+  padding : 5px 15px;
+}
+
+#exTab2 h3 {
+  color : white;
+  background-color: #428bca;
+  padding : 5px 15px;
+}
+
+/* remove border radius for the tab */
+
+#exTab1 .nav-pills > li > a {
+  border-radius: 0;
+}
+
+/* change border radius for the tab , apply corners on top*/
+
+#exTab3 .nav-pills > li > a {
+  border-radius: 4px 4px 0 0 ;
+  color: #556b2f;
+}
+
+#exTab3 .tab-content {
+  color: #556b2f;
+  background-color: #dbe9d8;
+  padding: 5px 15px;
+}
+
+#exTab3 .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+	color: #556b2f;
+	background-color: #c2d4d8;
+}
